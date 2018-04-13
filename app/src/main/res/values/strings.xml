@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VoteApplication</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">title</string>
+    <string name="actor">Actor</string>
+    <string name="time">Time</string>
+    <string name="vote">vote</string>
+</resources>
