@@ -27,7 +27,7 @@ import java.util.Date;
 public class createTopic extends AppCompatActivity {
 
     private static final String TAG = "Main Activity";
-    private EditText userName;
+    private EditText userName, title;
     private EditText  topic1;
     private TextView word;
     private int count;
@@ -43,9 +43,11 @@ public class createTopic extends AppCompatActivity {
         setContentView(R.layout.activity_create_topic);
 
         userName = (EditText) findViewById(R.id.editText);
+        title = (EditText) findViewById(R.id.editText2);
         topic1 = (EditText) findViewById(R.id.editText3);
         submit = (Button) findViewById(R.id.submit);
         word =(TextView) findViewById(R.id.wordCount);
+
 
         topic1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -83,13 +85,14 @@ public class createTopic extends AppCompatActivity {
         myRef = mFirebaseDatabase.getReference();
          String userName1= userName.getText().toString();
          String topic2= topic1.getText().toString();
+         String title1 = title.getText().toString();
         currentTime = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(currentTime);
 
         Log.i(TAG, userName1+topic2+currentTime);
         if(!userName1.equals("") &&!topic2.equals("")){
-            topic sentTopic = new topic(userName1,topic2,formattedDate);
+            topic sentTopic = new topic(title1,userName1,topic2,formattedDate);
             myRef.child("Topic").push().setValue(sentTopic);
             toastMessage("Submit successfully");
             userName.setText("");

@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".createTopic"></activity>
+        <activity android:name=".createTopic" />
+        <activity android:name=".displayAllStories"></activity>
+        <activity android:name=".List.allStoriesList"></activity>
     </application>
 
 </manifest>

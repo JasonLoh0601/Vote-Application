@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.world.jasonloh95.voteapplication.List.allStoriesList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,11 +21,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent create = new Intent(MainActivity.this, createTopic.class);
+                MainActivity.this.startActivity(create);
+            }
+        });
+
+
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.allStories);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent create = new Intent(MainActivity.this, allStoriesList.class);
                 MainActivity.this.startActivity(create);
             }
         });
