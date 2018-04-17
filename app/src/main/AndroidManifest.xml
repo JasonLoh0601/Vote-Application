@@ -19,9 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".createTopic" />
-        <activity android:name=".displayAllStories"></activity>
-        <activity android:name=".List.allStoriesList"></activity>
+        <activity android:name=".createTopic"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".displayAllStories"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".List.allStoriesList"
+            android:parentActivityName=".MainActivity"
+            ></activity>
     </application>
 
 </manifest>

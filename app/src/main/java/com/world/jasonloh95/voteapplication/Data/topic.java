@@ -1,19 +1,23 @@
 package com.world.jasonloh95.voteapplication.Data;
 
-import java.util.Date;
 
-public class topic {
+import android.support.annotation.NonNull;
+
+//this class use to store all topic data.
+public class topic implements Comparable {
     String title;
     String topic;
     String userName;
     String date;
+    String t;
     int vote;
 
     public topic(){
 
     }
 
-    public topic (String title, String userName,String topic, String date){
+    public topic (String t,String title, String userName,String topic, String date){
+        this.t=t;
         this.title = title;
         this.topic = topic;
         this.userName = userName;
@@ -21,12 +25,20 @@ public class topic {
         this.vote= 0;
     }
 
-    public topic (String title, String userName, String topic, String date, int vote){
+    public topic (String t,String title, String userName, String topic, String date, int vote){
+        this.t=t;
         this.title = title;
         this.topic = topic;
         this.userName = userName;
         this.date = date;
         this.vote = vote;
+    }
+
+    public void setT (String t){
+        this.t = t;
+    }
+    public String getT (){
+        return t;
     }
 
     public void setTitle (String title){
@@ -65,5 +77,14 @@ public class topic {
 
     public int getVote (){
         return vote;
+    }
+
+
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        int compareVote = ((topic)o).getVote();
+
+        return this.vote-compareVote;
     }
 }

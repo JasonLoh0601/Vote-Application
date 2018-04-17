@@ -30,7 +30,10 @@ public class allStoriesList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
+        //catch the data from firebase
         databaseStories = FirebaseDatabase.getInstance().getReference().child("Topic");
+
+        //find the list view in list_view for showing the title
         listViewStories = (ListView) findViewById(R.id.listView);
 
         stories = new ArrayList<>();
@@ -44,17 +47,23 @@ public class allStoriesList extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                //clear the topic class
                 stories.clear();
 
+                //read the data from firebase and store it in topic class
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
                     topic a = postSnapshot.getValue(topic.class);
 
                     stories.add(a);
                 }
+
+                //i want to use this function to show all topic start from latest topic.
                 Collections.reverse(stories);
+                // send the list to listView Adapter for display the information
                 listViewAdapter storiesAdapter = new listViewAdapter(allStoriesList.this,stories);
 
+                //set the storiesAdapter into the listView.
                 listViewStories.setAdapter(storiesAdapter);
             }
 
